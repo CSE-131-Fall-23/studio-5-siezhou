@@ -16,6 +16,7 @@ public class Methods {
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
 		double distance = 0;
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
+		distance = Math.sqrt(Math.pow(x2-x1, 2) + (Math.pow(y2-y1, 2)));
 		
 		return distance;
 	}
@@ -29,8 +30,13 @@ public class Methods {
 	 */
 	public static void drawBullsEye(double x, double y, double radius) {
 		StdDraw.setPenColor(StdDraw.BLACK);
-		StdDraw.filledCircle(x, y, radius);
-
+		StdDraw.filledCircle(x, y, 0.4);
+		StdDraw.setPenColor(StdDraw.BLUE);
+		StdDraw.filledCircle(x, y, 0.3);
+		StdDraw.setPenColor(StdDraw.RED);
+		StdDraw.filledCircle(x, y, 0.2);
+		StdDraw.setPenColor(StdDraw.YELLOW);
+		StdDraw.filledCircle(x, y, 0.1);
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
@@ -61,7 +67,19 @@ public class Methods {
 	 */
 	public static String substituteAll(String source, char target, String replacement) {
 		String result = "";
+		int i = 0;
+		String letter = "";
 		// TODO: Finish this method
+		for (i = 0; i < source.length(); i++) {
+			if (source.charAt(i) == target) {
+				letter = replacement;
+			}
+			else {
+				
+				letter = (String.valueOf(source.charAt(i)));
+			}
+			result = result + letter;
+		}
 		
 		return result;
 	}
